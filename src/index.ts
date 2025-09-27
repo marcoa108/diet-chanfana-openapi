@@ -3,7 +3,6 @@ import { cors } from 'hono/cors';
 import { swaggerUI } from '@hono/swagger-ui';
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { DietController } from './diet/controller';
-import dietData from './diet-data.json';
 
 // Inizializza app Hono con OpenAPI
 const app = new OpenAPIHono();
@@ -12,7 +11,10 @@ const app = new OpenAPIHono();
 app.use('*', cors());
 
 // Carica i dati della dieta
-const dietController = new DietController(dietData as any);
+const dietData = require('./diet-data.json');
+
+// Carica il controller della dieta
+const dietController = new DietController(dietData);
 
 // Integra le route del controller
 app.route('/', dietController.router);
