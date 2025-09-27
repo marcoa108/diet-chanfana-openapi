@@ -3,6 +3,7 @@ import { cors } from 'hono/cors';
 import { swaggerUI } from '@hono/swagger-ui';
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { DietController } from './diet/controller';
+import { router } from './router';
 
 // Inizializza app Hono con OpenAPI
 const app = new OpenAPIHono();
@@ -36,4 +37,7 @@ app.doc('/doc', {
   ],
 });
 
-export default app;
+export default {
+  fetch: router.handle,
+};
+
