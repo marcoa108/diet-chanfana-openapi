@@ -1,0 +1,16 @@
+{
+  "compatibility_date": "2025-04-01",
+  "main": "src/index.ts",
+  "name": "diet-chanfana-openapi",
+  "upload_source_maps": true,
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "diet-openapi-template-db",
+      "database_id": "98156c3a-f611-475e-9025-3bf573a2a6f7"
+    }
+  ]
+}
